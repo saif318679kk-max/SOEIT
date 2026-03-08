@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVvault</title>
+    <link rel="stylesheet" href="register1.css">
+
+    <style>
+        body{
+    background-image: url("image18.jpg");
+    font-family:Arial;
+    color:white;
+    padding:40px;
+}
+form{
+    border-radius:20px;
+    width:350px;
+    box-shadow:0 20px 40px rgba(248, 245, 245, 0.5);
+    align-self: start;
+    display:grid;
+    background:transparent;
+    padding:25px;
+    border-radius:15px;
+}
+input{
+    width:100%;
+    padding:8px;
+    border:none;
+    border-radius:25px;
+}
+nav a{/*for home, store , login*/
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    transition:1s;
+    padding:10px 15px;
+    border-radius: 30px;
+    text-align:center;
+    background:linear-gradient(135deg,#0d2d78,#067ad2);
+}
+nav a:hover{
+    color:#0cb9f3;
+    transition: 1s;
+    transform:translateY(-5px);
+    box-shadow:0 10px 50px rgba(253, 252, 252, 0.5);
+}
+h2{
+    padding: 10px 20px;
+    font-size:30px;
+    margin-bottom:10px;
+    color: white;
+    text-decoration: underline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom: 5px;
+    background:linear-gradient(135deg,#38bdf8,#6366f1);
+    border:none;
+    border-radius:25px;
+    text-decoration: underline;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition: 1s;
+}
+button:hover{
+    opacity:0.9;
+    transform: translatey(-5px);
+    background: #3e6aa7;
+}
+form a{
+    display:block;
+    padding: 5px 5px;
+    margin-top:15px;
+    margin-bottom: 15px;
+    color:hsl(204, 17%, 94%);
+    text-decoration:none;
+    border-radius: 25px;
+    background-color: rgb(18, 123, 198);
+    border-width: 30px;
+    background-size: 20px;
+    text-decoration: underline;
+}
+b{
+    color: azure;
+    text-align: center;
+}
+ form a{
+    background:linear-gradient(135deg,#38bdf8,#6366f1);
+    display:block;
+    padding: 5px 5px;
+    margin-top:5px;
+    color:#f7f5f5;
+    text-decoration:underline;
+    border-radius: 25px;
+    border-width: 30px;
+}
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <a href="home.html">Back to Home Page</a>
+        <a href="WebStore.html">Store</a>
+    <h2>User Registration</h2>
+
+    <!-- The 'action' attribute specifies where to send the form-data when a form is submitted. 
+         The 'method' attribute specifies the HTTP method (GET or POST) to be used. POST is recommended for sensitive data. -->
+        <div class="reg">
+         <div class="form">
+         <form action="/submit_registration" method="POST">
+        
+        <!-- Name -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- ID or CNIC (using pattern for basic validation - CNIC is typically 13 digits in Pakistan) -->
+        <label for="cnic">ID or CNIC:</label>
+        <input type="text" id="cnic" name="cnic" pattern="[0-9]{13}" title="Please enter a 13-digit CNIC number" required><br><br>
+
+        <!-- Date of Birth -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <!-- Contact (using type="tel" for better mobile compatibility) -->
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" name="contact" pattern="[0-9]{10,15}" title="Enter a valid phone number" required><br><br>
+
+        <!-- Gender (using radio buttons for single selection) -->
+        <label>Gender:</label><br><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br><br>
+
+        <!-- Password -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+             
+        <label for="password">Re-Enter Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <!-- Checkbox for Terms and Conditions -->
+        <input type="checkbox" id="terms" name="terms" value="accepted" required>
+        <label for="terms">I agree to the [Terms & Conditions](link_to_terms.html)</label><br><br>
+
+        <!-- Submit Button -->
+         <button onclick="login()"><b>Register</b></button>
+         <b>Or</b>
+        <a href="login.html">Login</a>
+    </form>
+    </div>
+    </div>
+
+</body>
+</html>

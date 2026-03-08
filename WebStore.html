@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Software Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="store.css">
+
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins','Times New Roman';
+    
+    
+}
+body{
+     background-image: url("image18.jpg");
+     opacity: 0.9;
+     z-index: -1;
+     overflow-x: hidden !important;
+    color:rgb(247, 249, 245);
+}
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background-image: url("image.jpg");
+    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 150px; 
+}
+header h3{
+    font-size:30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom:10px;
+    padding: 10px;
+    background: transparent;
+    box-shadow: 5px 15px 20px;
+    margin-right: 80px;
+    margin-left:5px;;
+    text-decoration: underline;
+}
+
+.logo a {
+  display: block; 
+  width: 250px; 
+  height: 150px; 
+  margin-left: -50px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  background-image: url("logo.png"); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  text-indent: -9999px; 
+  overflow: hidden; 
+}
+/*Menu bar of three dotted lines*/
+.menu-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 60;
+  border-color: aqua;
+}
+.bar1, .bar2, .bar3 {
+  width: 20px;
+  height: 3px;
+  background:linear-gradient(135deg ,#eeeff1 , #067ad2);
+  margin: 3px 0;
+  transition: 1s;
+}
+.nav-links {
+  display: none;
+  position: fixed;
+  width: 200px;
+  height: 400px;
+  top: 50px;
+  right: 20px;
+  background:linear-gradient(135deg ,#a2d6eb , #1d83d2);
+  box-shadow: 0px 15px 26px rgba(250, 249, 249, 0.2);
+  padding: 20px;
+  z-index: 70;
+  border: #e3e6ee;
+  border-radius: 1px;
+}
+
+.nav-links a {
+  display: -webkit-box;
+  border-radius: 30px;
+  margin-top: 12px;
+  padding: 10px;
+  text-decoration: none;
+  color: rgb(249, 246, 246);
+}
+.nav-links a:hover{
+    transform:translateY(-5px);
+    color: #0a0b0d;
+    transition: 1s;
+}
+.show-menu {
+  display: block !important;
+}
+nav a:hover{
+    color:#fafaf9;
+    background-color: #f3f4f7;
+}
+.hero{
+    padding:80px 50px;
+    text-align:center;
+    background-image: url("image18.jpg");
+    background-size: cover;
+}
+.hero h2{
+    font-size:40px;
+    margin-bottom:15px;
+    color: white;
+    text-decoration: underline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.hero h3{
+    font-size:20px;
+    margin-bottom:10px;
+    color: white;
+    text-decoration: underline;
+}
+
+.hero p3{
+    font-size:15px;
+    margin-bottom: 10px;
+    opacity:1;
+    color: rgb(46, 212, 212);
+    text-decoration: underline;
+}
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 30px;
+    background: linear-gradient(135deg ,#0d2d78 , #067ad2);
+    color:#f7f6f3;
+    border-radius:30px;
+    font-weight:600;
+    text-decoration:none;
+    transition: 0.4s;
+}
+.btn:hover{
+    transform:translateY(-px);
+    background:#f6f6f7;  
+    color: rgb(12, 170, 49);
+}
+.section{
+    padding:40px 50px;
+}
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top: 15px;
+}
+.card{
+    background:linear-gradient( 135deg , #067ad2, #12147a);
+    padding:20px;
+    border-radius:15px;
+    transition:1s;
+}
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(251, 249, 249, 0.6);
+}
+.card h3{
+    margin-bottom:10px;
+}
+footer{
+    text-align:center;
+    padding:10px;
+    background:#3c4b6b;
+    margin-top:30px;
+}
+input{
+    padding:10px;
+    border-radius:20px;
+    border:none;
+    width:250px;
+}
+/* search box editting*/
+.search-box {
+    margin-top:20px;
+    transition: 1s;
+    color: white;
+    border-width: 300px;
+    height: 40px;
+    border-color: burlywood;
+}
+.search-box :hover {
+    background-color: rgb(194, 214, 121);
+     transform:translateY(-1px);
+    transition: 1s;
+    color: white;    
+}
+
+
+/*login page*/
+
+</style>
+</head>
+
+<body>
+
+<header>
+    
+    <h1 class="logo">
+  <a href="/">My Website Name</a>
+    </h1>
+     <h3>Smart Software Store</h3>
+    <nav>
+<nav class="navbar">
+  <div class="menu-icon" onclick="toggleMenu()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+
+  <div id="nav-links" class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="sftcat.html">Catagories</a>
+    <a href="freelan.html">Freelancer</a>
+    <a href="login.html">Login or Register</a>
+      <a href="about.html">About /Contact </a>
+      <a href="setting.html">Settings </a>
+
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+        <div class="blink_me"> 
+      <h2>DEVvault</h2> 
+    </div>
+    <p3>Buy, Sell, Download & Customize Open Source Projects, Apps & Websites</p3>
+    
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search Projects...">
+    </div>
+    
+    <a href="#" class="btn">Explore Now</a>
+</section>
+
+<section class="section">
+    <h2>Popular Categories:</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Web Applications</h3>
+            <p>Laravel, React, Django Projects</p>
+        </div>
+        <div class="card">
+            <h3>Mobile Apps</h3>
+            <p>Flutter & Android Source Codes</p>
+        </div>
+        <div class="card">
+            <h3>UI/UX Designs</h3>
+            <p>Modern Templates & Layouts</p>
+        </div>
+        <div class="card">
+            <h3>AI Projects</h3>
+            <p>Machine Learning & Automation</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Why Choose Us?</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Free & Paid Access</h3>
+            <p>Download free projects or buy premium licensed software.</p>
+        </div>
+        <div class="card">
+            <h3>Editable Source Code</h3>
+            <p>Customize and modify open-source projects easily.</p>
+        </div>
+        <div class="card">
+            <h3>Freelancer Marketplace</h3>
+            <p>Hire developers or sell your own software.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Smart Software Store | All Rights Reserved</p>
+</footer>
+<script src="sabe.js"></script>
+</body>
+</html>

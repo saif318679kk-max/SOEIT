@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Account Settings - DEVvault</title>
+
+<style>
+
+body{
+font-family:Arial;
+background-image: url("image18.jpg");
+color:white;
+margin:0;
+}
+
+.container{
+display:flex;
+}
+
+.sidebar{
+width:250px;
+background:linear-gradient(135deg , #0d2d78,#067ad2);
+height:100vh;
+padding:20px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+padding:12px;
+margin-bottom:10px;
+border-radius:8px;
+}
+
+.sidebar a:hover{
+background:#f5f6f8;
+color: black;
+}
+.sidebar h2{
+    text-decoration: underline;
+}
+.section h2{
+    text-decoration: underline;
+}
+
+.content{
+flex:1;
+padding:40px;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-top:8px;
+margin-bottom:15px;
+border-radius:6px;
+border:none;
+}
+
+button{
+padding:10px 20px;
+background:#38bdf8;
+border:none;
+border-radius:20px;
+cursor:pointer;
+color:white;
+}
+
+.section{
+margin-bottom:40px;
+}
+h1{
+    padding: 10px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 30px;
+    text-decoration: underline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+</style>
+
+</head>
+
+<body>
+    <h1>DEVvault</h1>
+
+<div class="container">
+
+<div class="sidebar">
+
+<h2>Settings:</h2>
+<a href="home.html">Home Page</a>
+<a href="#profile">Profile</a>
+<a href="#account">Account</a>
+<a href="#password">Password</a>
+<a href="#notifications">Notifications</a>
+<a href="#appearance">Appearance</a>
+<a href="#payments">Payments</a>
+<a href="#security">Security</a>
+<a href="#delete">Delete Account</a>
+
+</div>
+
+<div class="content">
+
+<!-- PROFILE SETTINGS -->
+
+<div class="section" id="profile">
+<h2>Profile Settings.</h2>
+
+<label>Name:</label>
+<input type="text" id="name">
+
+<label>Bio:</label>
+<input type="text" id="bio">
+
+<label>Skills:</label>
+<input type="text" id="skills">
+
+<label>Profile Picture:</label>
+<input type="file">
+
+<button onclick="saveProfile()">Save Profile</button>
+</div>
+
+
+<!-- ACCOUNT SETTINGS -->
+
+<div class="section" id="account">
+<h2>Account Settings:</h2>
+
+<label>Email</label>
+<input type="email" id="email">
+
+<label>Username</label>
+<input type="text" id="username">
+
+<button onclick="saveAccount()">Save Account</button>
+</div>
+
+
+<!-- PASSWORD -->
+
+<div class="section" id="password">
+<h2>Change Password</h2>
+
+<label>Current Password</label>
+<input type="password">
+
+<label>New Password</label>
+<input type="password">
+
+<button>Update Password</button>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+
+<div class="section" id="notifications">
+<h2>Notifications</h2>
+
+<label>Email Notifications</label>
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+<label>Message Alerts</label>
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+<button>Save Notifications</button>
+
+</div>
+
+
+<!-- APPEARANCE -->
+
+<div class="section" id="appearance">
+<h2>Appearance</h2>
+
+<label>Theme</label>
+
+<select>
+<option>Dark Mode</option>
+<option>Light Mode</option>
+</select>
+
+<button>Save Appearance</button>
+
+</div>
+
+
+<!-- PAYMENTS -->
+
+<div class="section" id="payments">
+<h2>Payment Settings</h2>
+
+<label>Payment Method</label>
+
+<select>
+<option>Bank Transfer</option>
+<option>Stripe</option>
+<option>PayPal</option>
+</select>
+
+<button>Save Payment</button>
+
+</div>
+
+
+<!-- SECURITY -->
+
+<div class="section" id="security">
+<h2>Security</h2>
+
+<label>Two Factor Authentication</label>
+
+<select>
+<option>Enable</option>
+<option>Disable</option>
+</select>
+
+<button>Save Security</button>
+
+</div>
+
+
+<!-- DELETE ACCOUNT -->
+
+<div class="section" id="delete">
+<h2>Delete Account</h2>
+
+<p>This action cannot be undone.</p>
+
+<button style="background:red;">Delete My Account</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function saveProfile(){
+
+let name=document.getElementById("name").value;
+let bio=document.getElementById("bio").value;
+let skills=document.getElementById("skills").value;
+
+fetch("/api/updateProfile",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+name:name,
+bio:bio,
+skills:skills
+})
+
+});
+
+alert("Profile Updated");
+
+}
+
+function saveAccount(){
+
+let email=document.getElementById("email").value;
+let username=document.getElementById("username").value;
+
+fetch("/api/updateAccount",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+email:email,
+username:username
+})
+
+});
+
+alert("Account Updated");
+
+}
+
+</script>
+
+</body>
+</html>
